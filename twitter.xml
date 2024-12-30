@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.2.1
+- https://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Dec 30, 2024 at 01:01 PM
+- Server version: 10.4.32-MariaDB
+- PHP Version: 8.2.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="twitter" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="follow">
+                CREATE TABLE `follow` (
+                  `followId` int(11) NOT NULL AUTO_INCREMENT,
+                  `sender` int(11) NOT NULL,
+                  `receiver` int(11) NOT NULL,
+                  PRIMARY KEY (`followId`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+            </pma:table>
+            <pma:table name="tweets">
+                CREATE TABLE `tweets` (
+                  `tweet_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `user_id` int(11) NOT NULL,
+                  `tweet` varchar(140) NOT NULL,
+                  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+                  PRIMARY KEY (`tweet_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `username` varchar(40) NOT NULL,
+                  `email` varchar(255) NOT NULL,
+                  `password` varchar(32) NOT NULL,
+                  `fullname` varchar(40) NOT NULL,
+                  `profileImage` varchar(255) NOT NULL,
+                  `following` int(11) NOT NULL,
+                  `followers` int(11) NOT NULL,
+                  PRIMARY KEY (`user_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+</pma_xml_export>
